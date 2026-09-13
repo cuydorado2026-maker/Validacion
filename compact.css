@@ -1,0 +1,54 @@
+.analytics-grid{align-items:stretch}.analytics-grid>.panel{align-self:stretch;height:auto}
+.lower-grid{align-items:stretch}.lower-grid>.panel{align-self:stretch;height:auto}
+
+@media(max-width:700px){
+	.app-shell{display:block}
+	.sidebar{width:62px;padding:14px 7px}
+	.brand{margin:0 0 28px;justify-content:center}
+	.brand img{width:42px;max-height:42px;object-fit:cover;object-position:left}
+	.nav-item{justify-content:center;padding:0;height:40px}
+	.nav-item:not(.active){font-size:0}
+	.nav-item .nav-icon{margin:0;font-size:20px}
+	.sidebar-mascot{display:none}
+	.main-content{margin-left:62px;width:calc(100% - 62px)}
+	.hero-header{height:170px;min-height:170px;padding:22px 14px;display:block}
+	.hero-copy{max-width:calc(100% - 16px);padding-top:42px}
+	.hero-copy .eyebrow{font-size:13px}
+	.hero-copy h1{font-size:clamp(20px,6vw,25px);line-height:1.1}
+	.hero-copy>p:last-child{font-size:12px}
+	.header-actions{position:absolute;inset:0;width:100%;min-width:0;display:block;pointer-events:none}
+	.profile-menu-wrap{right:10px;top:10px;pointer-events:auto}
+	.date-card{position:absolute;right:10px;bottom:12px;width:min(250px,calc(100% - 20px));min-width:0}
+	.page-body{padding:10px 8px}
+	.metrics-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+	.metric-card{min-height:88px;padding:10px 8px;gap:8px}
+	.metric-card strong{font-size:20px}
+	.metric-card small{font-size:9px}
+	.analytics-grid,.lower-grid{display:block}
+	.analytics-grid>.panel,.lower-grid>.panel{margin-bottom:8px}
+	.panel{padding:9px}
+	.action-bar{display:block}
+	.action-buttons{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}
+	.action-buttons .action-button{min-width:0;padding:8px 5px;font-size:10px}
+	.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+	table{min-width:680px}
+	.profile-dropdown{max-width:calc(100vw - 20px)}
+}
+
+@media(max-width:420px){
+	.sidebar{width:52px}
+	.main-content{margin-left:52px;width:calc(100% - 52px)}
+	.hero-header{height:185px;min-height:185px;padding-left:10px;padding-right:10px}
+	.hero-copy{padding-top:48px}
+	.metrics-grid{grid-template-columns:1fr}
+	.action-buttons{grid-template-columns:1fr}
+	.date-card{font-size:10px}
+}
+
+@media(max-height:760px) and (min-width:701px){
+	.sidebar{padding-top:12px;padding-bottom:10px}
+	.brand{margin-bottom:20px}
+	.main-nav{gap:2px}
+	.nav-item{height:37px}
+	.sidebar-mascot{display:none}
+}

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#3c180a">
+  <title>Cuy Dorado | Panel de control</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="functional.css">
+  <link rel="stylesheet" href="views.css">
+  <link rel="stylesheet" href="users.css">
+  <link rel="stylesheet" href="status.css">
+  <link rel="stylesheet" href="key.css">
+  <link rel="stylesheet" href="pagination.css">
+  <link rel="stylesheet" href="compact.css">
+  <link rel="stylesheet" href="auth.css">
+  <link rel="stylesheet" href="logo.css">
+  <link rel="stylesheet" href="mascot.css">
+  <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+  <section class="login-screen" id="login-screen"><div class="login-card"><img src="logo.png" alt="Cuy Dorado" class="login-logo"><h1>Iniciar sesión</h1><p>Accede al panel de control</p><form id="login-form"><label>Usuario<input name="username" autocomplete="username" required placeholder="Gabriel"></label><label>Contraseña<input name="password" type="password" autocomplete="current-password" required placeholder="Contraseña"></label><button class="action-button primary" type="submit">Entrar al panel</button><small id="login-error" role="alert"></small></form></div></section>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Navegación principal">
+      <div class="brand"><img src="logo.png" alt="Cuy Dorado"></div>
+      <nav class="main-nav">
+        <button class="nav-item active" data-view="Inicio"><span class="nav-icon">⌂</span>Inicio</button>
+        <button class="nav-item" data-view="Códigos"><span class="nav-icon">▱</span>Códigos</button>
+        <button class="nav-item" data-view="Canjes"><span class="nav-icon">♧</span>Canjes</button>
+        <button class="nav-item" data-view="Premios"><span class="nav-icon">♧</span>Premios</button>
+        <button class="nav-item" data-view="Usuarios"><span class="nav-icon">♙</span>Usuarios</button>
+        <button class="nav-item" data-view="Reportes"><span class="nav-icon">▥</span>Reportes</button>
+        <button class="nav-item" data-view="Configuración"><span class="nav-icon">⚙</span>Configuración</button>
+      </nav>
+      <div class="sidebar-mascot" aria-hidden="true"><div class="mascot-face"><img src="cuy.png" alt="Cuy Dorado"></div><p>¡Abre, disfruta<br>y <strong>gana!</strong></p><span class="mascot-crown">♛</span></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="hero-header">
+        <div class="hero-copy"><p class="eyebrow">¡Abre, disfruta y <strong>gana!</strong></p><h1>¡Bienvenido, Gabriel!</h1><p>Panel de control <b>| Cuy Dorado</b></p></div>
+        <div class="header-actions"><div class="notification-wrap"><button class="notification-button" id="notifications-toggle" aria-label="Ver alertas" aria-expanded="false">🔔<span class="notification-count" id="notification-count" hidden>0</span></button><div class="notification-dropdown" id="notification-dropdown" hidden><h3>Alertas</h3><div id="notification-list"><p>No hay usuarios nuevos.</p></div></div></div><div class="profile-menu-wrap"><button class="profile-button" id="profile-toggle"><span class="avatar">G</span><span><b>Gabriel</b><small>Administrador</small></span><span>⌄</span></button><div class="profile-dropdown" id="profile-dropdown"><button data-profile-action="settings">⚙ Configuración</button><button data-profile-action="logout">↪ Cerrar sesión</button></div></div><div class="date-card"><span>▣</span><span><b id="current-date">Actualizando fecha...</b><small id="last-updated">Última actualización: --:--</small></span></div></div>
+      </header>
+
+      <section class="page-body">
+        <div class="mobile-heading"><span>Resumen general</span><button class="mobile-menu">☰</button></div>
+        <div class="action-bar"><div><h2 id="view-title">Resumen general</h2><p id="data-status">Datos de demostración activos</p></div><div class="action-buttons"><button class="action-button secondary" id="import-button">⇧ Importar Excel</button><button class="action-button secondary" id="refresh-data-button">↻ Actualizar datos</button><input id="excel-input" type="file" accept=".csv,.xlsx,.xls" hidden><button class="action-button primary" id="add-button">＋ Nuevo canje</button></div></div>
+        <div id="independent-view" hidden></div>
+        <section class="metrics-grid">
+          <article class="metric-card"><div class="metric-icon gold">▣</div><div><span>Códigos canjeados</span><strong id="metric-total">2,458</strong><em class="positive">↑ +12%</em><small>vs. semana anterior</small></div></article>
+          <article class="metric-card mint"><div class="metric-icon green">✓</div><div><span>Ganadores</span><strong id="metric-winners">386</strong><em class="positive">↑ +8%</em><small>vs. semana anterior</small></div></article>
+          <article class="metric-card rose"><div class="metric-icon red">×</div><div><span>No ganadores</span><strong id="metric-losers">1,972</strong><em class="positive">↑ +14%</em><small>vs. semana anterior</small></div></article>
+          <article class="metric-card cream"><div class="metric-icon amber">◷</div><div><span>Pendientes</span><strong id="metric-pending">100</strong><em class="negative">↓ -5%</em><small>vs. semana anterior</small></div></article>
+        </section>
+
+        <section class="analytics-grid">
+          <article class="panel status-panel"><div class="panel-heading"><div><h2>▱ Estado de códigos</h2><p>Distribución de códigos canjeados</p></div></div><div class="donut-layout"><div class="donut"><div><b>2,458</b><span>códigos</span></div></div><div class="legend"><div><i class="dot green-bg"></i>Ganadores <b>386 <small>(15.7%)</small></b></div><div><i class="dot red-bg"></i>No ganadores <b>1,972 <small>(80.2%)</small></b></div><div><i class="dot yellow-bg"></i>Pendientes <b>100 <small>(4.1%)</small></b></div></div></div></article>
+          <article class="panel chart-panel"><div class="panel-heading"><div><h2>▣ Códigos canjeados por día</h2></div><select aria-label="Rango de días"><option>Últimos 7 días</option><option>Últimos 30 días</option></select></div><div class="bar-chart" aria-label="Gráfico de canjes de los últimos siete días"><div class="y-labels"><span>500</span><span>400</span><span>300</span><span>200</span><span>100</span><span>0</span></div><div class="bars"> <div class="bar-group"><i class="bar green-bar" style="height:26%"></i><i class="bar red-bar" style="height:20%"></i><i class="bar yellow-bar" style="height:4%"></i><span>06 Set</span></div><div class="bar-group"><i class="bar green-bar" style="height:34%"></i><i class="bar red-bar" style="height:24%"></i><i class="bar yellow-bar" style="height:5%"></i><span>07 Set</span></div><div class="bar-group"><i class="bar green-bar" style="height:38%"></i><i class="bar red-bar" style="height:27%"></i><i class="bar yellow-bar" style="height:6%"></i><span>08 Set</span></div><div class="bar-group"><i class="bar green-bar" style="height:47%"></i><i class="bar red-bar" style="height:30%"></i><i class="bar yellow-bar" style="height:8%"></i><span>09 Set</span></div><div class="bar-group"><i class="bar green-bar" style="height:54%"></i><i class="bar red-bar" style="height:36%"></i><i class="bar yellow-bar" style="height:9%"></i><span>10 Set</span></div><div class="bar-group"><i class="bar green-bar" style="height:64%"></i><i class="bar red-bar" style="height:40%"></i><i class="bar yellow-bar" style="height:10%"></i><span>11 Set</span></div><div class="bar-group"><i class="bar green-bar" style="height:70%"></i><i class="bar red-bar" style="height:44%"></i><i class="bar yellow-bar" style="height:12%"></i><span>12 Set</span></div></div></div><div class="chart-legend"><span><i class="dot green-bg"></i>Ganadores</span><span><i class="dot red-bg"></i>No ganadores</span><span><i class="dot yellow-bg"></i>Pendientes</span></div></article>
+          <article class="panel prize-panel"><div class="panel-heading"><h2>🎁 Premios entregados</h2><select><option>Todos</option><option>Este mes</option></select></div><div class="prize-list"><div><span>🪙</span>S/ 50.00 <b>5</b></div><div><span>🪙</span>S/ 10.00 <b>12</b></div><div><span>🪙</span>S/ 5.00 <b>28</b></div><div><span>🪙</span>S/ 2.00 <b>61</b></div><div><span>🪙</span>S/ 1.00 <b>98</b></div><div><span>🪙</span>S/ 0.50 <b>102</b></div><div><span>🪙</span>S/ 0.20 <b>80</b></div></div><div class="total">Total de premios entregados <strong>S/ 2,184.00</strong></div></article>
+        </section>
+
+        <section class="lower-grid"><article class="panel table-panel"><div class="panel-heading"><h2>▣ Últimos códigos canjeados</h2><button class="text-button">Ver todos　⌄</button></div><div class="table-wrap"><table><thead><tr><th>Fecha y hora</th><th>Código</th><th>Estado</th><th>Premio</th><th>Usuario</th><th>Método</th></tr></thead><tbody><tr><td>12/09/2026 17:20</td><td>CD7F3K9L</td><td><span class="status success">● Ganador</span></td><td>S/ 2.00</td><td>Juan P.</td><td>Yape</td></tr><tr><td>12/09/2026 17:18</td><td>A8K2M1Q5</td><td><span class="status fail">● No ganador</span></td><td>-</td><td>María L.</td><td>-</td></tr><tr><td>12/09/2026 17:15</td><td>Z9P4T6V1</td><td><span class="status pending">● Pendiente</span></td><td>-</td><td>Carlos R.</td><td>-</td></tr><tr><td>12/09/2026 17:12</td><td>M3N7B5C8</td><td><span class="status fail">● No ganador</span></td><td>-</td><td>Lucía S.</td><td>-</td></tr><tr><td>12/09/2026 17:10</td><td>Q2W6E8R4</td><td><span class="status success">● Ganador</span></td><td>S/ 0.50</td><td>Diego M.</td><td>Plin</td></tr><tr><td>12/09/2026 17:08</td><td>L9K3D7F2</td><td><span class="status success">● Ganador</span></td><td>S/ 1.00</td><td>Ana T.</td><td>Yape</td></tr><tr><td>12/09/2026 17:05</td><td>H5G8J1P0</td><td><span class="status fail">● No ganador</span></td><td>-</td><td>Luis V.</td><td>-</td></tr></tbody></table></div></article><article class="panel payment-panel"><div class="panel-heading"><h2>▣ Canjes por método de pago</h2></div><div class="payment-content"><div class="payment-donut" data-payment-donut><div>0</div></div><div class="payment-legend" data-payment-legend></div></div></article></section>
+        <footer><span>Cuy Dorado © 2026. Todos los derechos reservados.</span><span>Términos y condiciones　 |　 Política de privacidad　 |　 Soporte</span><strong>Pequeñas sorpresas, grandes alegrías　♛</strong></footer>
+      </section>
+    </main>
+  </div>
+  <dialog class="entry-dialog" id="entry-dialog"><form method="dialog" id="entry-form"><div class="dialog-heading"><h2>Registrar canje</h2><button type="button" class="close-button" aria-label="Cerrar">×</button></div><label>Código<input name="code" required maxlength="20" placeholder="Ej. CYD-MT13"></label><label>Nombre<input name="user" required placeholder="Nombre completo"></label><label>Celular<input name="phone" placeholder="960433999"></label><label>Correo<input name="email" type="email" placeholder="cliente@correo.com"></label><label>Estado<select name="status"><option value="No Pagar">No Pagar</option><option value="Pagado">Pagado</option><option value="Pendiente">Pendiente</option></select></label><label>Premio<input name="prize" placeholder="S/ 2.00"></label><label>Método<input name="method" placeholder="Yape"></label><div class="dialog-actions"><button type="button" value="cancel" class="action-button secondary">Cancelar</button><button value="default" class="action-button primary">Guardar canje</button></div></form></dialog>
+  <dialog class="user-dialog" id="user-dialog"><div class="user-dialog-content"><div class="dialog-heading"><h2>Información del usuario</h2><button type="button" class="user-close-button close-button" aria-label="Cerrar">×</button></div><div id="user-details"></div></div></dialog>
+  <dialog class="key-dialog" id="key-dialog"><form method="dialog" id="key-form"><div class="dialog-heading"><h2>Confirmar cambio</h2><button type="button" class="key-close-button close-button" aria-label="Cerrar">×</button></div><p>Ingresa la clave para cambiar el estado de pago.</p><input id="status-key-input" type="password" autocomplete="off" placeholder="Clave"><div class="dialog-actions"><button type="button" class="key-cancel-button action-button secondary">Cancelar</button><button value="default" class="action-button primary">Confirmar</button></div></form></dialog>
+  <div class="toast" role="status">Vista actualizada</div>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="script.js?v=20260913-5"></script>
+</body>
+</html>
